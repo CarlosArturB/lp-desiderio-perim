@@ -17,44 +17,40 @@ showSlide(currentIndex);
 // Trocar de slide a cada 40 segundos (40000 ms)
 setInterval(nextSlide, 5000);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 // Inicializar EmailJS
 document.addEventListener("DOMContentLoaded", function () {
   emailjs.init("p2108Zdhe0z50WVZG");
 
+  function mostrarToast(texto, cor) {
+    Toastify({
+      text: texto,
+      duration: 3000,
+      close: true,
+      gravity: "top", // top ou bottom
+      position: "right", // left, center ou right
+      backgroundColor: cor,
+      stopOnFocus: true,
+    }).showToast();
+  }
+
   function enviarFormulario(nome, email, telefone) {
     const templateParams = { nome, email, telefone };
-    console.log("Enviando templateParams:", templateParams);
 
     emailjs
       .send("service_b7eyued", "template_4cnm8ts", templateParams)
       .then(
         function (response) {
-          alert("Mensagem enviada com sucesso!");
+          mostrarToast("Mensagem enviada com sucesso!", "linear-gradient(to right, #00b09b, #96c93d)");
           console.log("SUCCESS!", response.status, response.text);
         },
         function (error) {
-          alert("Erro ao enviar. Tente novamente.");
+          mostrarToast("Erro ao enviar. Tente novamente.", "linear-gradient(to right, #ff5f6d, #ffc371)");
           console.error("FAILED...", error);
         }
       );
   }
 
-  // Seleciona o formulário desktop pelo id
   const formDesktop = document.getElementById("formdesktop");
-  console.log("Form desktop encontrado?", formDesktop);
   if (formDesktop) {
     formDesktop.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -63,20 +59,16 @@ document.addEventListener("DOMContentLoaded", function () {
       const email = formDesktop.querySelector("#email").value.trim();
       const telefone = formDesktop.querySelector("#telefone").value.trim();
 
-      console.log("Dados do formulário desktop:", { nome, email, telefone });
-
       if (nome && email && telefone) {
         enviarFormulario(nome, email, telefone);
         formDesktop.reset();
       } else {
-        alert("Por favor, preencha todos os campos.");
+        mostrarToast("Por favor, preencha todos os campos.", "linear-gradient(to right, #ff5f6d, #ffc371)");
       }
     });
   }
 
-  // Seleciona o formulário mobile pela classe
   const formMobile = document.querySelector(".formulario-mobile");
-  console.log("Form mobile encontrado?", formMobile);
   if (formMobile) {
     formMobile.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -85,13 +77,11 @@ document.addEventListener("DOMContentLoaded", function () {
       const email = formMobile.querySelector("#email").value.trim();
       const telefone = formMobile.querySelector("#telefone").value.trim();
 
-      console.log("Dados do formulário mobile:", { nome, email, telefone });
-
       if (nome && email && telefone) {
         enviarFormulario(nome, email, telefone);
         formMobile.reset();
       } else {
-        alert("Por favor, preencha todos os campos.");
+        mostrarToast("Por favor, preencha todos os campos.", "linear-gradient(to right, #ff5f6d, #ffc371)");
       }
     });
   }
