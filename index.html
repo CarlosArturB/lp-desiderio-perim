@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Residencial Desidério Perim</title>
     <link rel="stylesheet" href="styles.css" />
-    <script src="./scrippt.js" defer></script>
   </head>
   <body>
     <div id="container">
-         <!--promo-->
-      <div class="promo-desktop">
+      <!--promo
+         
+         <div class="promo-desktop">
         <div class="promo-desktop-valor">
           <div>
             <p>Aproveite a entrada a partir de</p>
@@ -25,6 +25,8 @@
           </div>
         </div>
       </div>
+         -->
+
       <!-- Header -->
       <header class="header">
         <div class="header-container">
@@ -61,11 +63,29 @@
 
             <!-- Contact Form -->
             <div class="contact-form">
-              <form class="form-grid">
-                <input type="text" placeholder="Nome" class="form-input" />
-                <input type="email" placeholder="E-mail" class="form-input" />
-                <input type="tel" placeholder="Telefone" class="form-input" />
-                <button type="submit" class="form-button">Enviar</button>
+              <form class="formulario2" id="formdesktop">
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  placeholder="Nome"
+                  required
+                />
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="E-mail"
+                  required
+                />
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  placeholder="Telefone"
+                  required
+                />
+                <button type="submit">Enviar</button>
               </form>
             </div>
           </div>
@@ -224,7 +244,7 @@
     </div>
 
     <div id="container-mobile">
-      <!--promo-->
+      <!--promo
       <div class="promo-mobile">
         <div class="promo-mobile-valor">
           <div>
@@ -239,6 +259,8 @@
           </div>
         </div>
       </div>
+      
+      -->
 
       <!--Header-->
       <div class="topo-mobile">
@@ -276,26 +298,34 @@
           <img src="./img/app/foto9_app.png" alt="Descrição" class="slide" />
           <img src="./img/app/foto10_app.png" alt="Descrição" class="slide" />
         </div>
-        <div class="formulario-mobile">
-          <div class="formulario-mobile-nome">
-            <input type="text" id="nome" name="nome" placeholder="Nome" />
-          </div>
 
-          <div class="formulario-mobile-email">
-            <input type="email" id="email" name="email" placeholder="Email" />
-          </div>
-
-          <div class="formulario-mobile-telefone">
+        <div class="contact-form-mobile">
+          <form class="formulario-mobile" id="formMobile">
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              placeholder="Nome"
+              required
+            />
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="E-mail"
+              required
+            />
             <input
               type="tel"
               id="telefone"
               name="telefone"
-              placeholder="telefone"
+              placeholder="Telefone"
+              required
             />
-          </div>
-          <div class="botao-formulario">
-            <button>Enviar</button>
-          </div>
+            <div class="botao-formulario">
+              <button type="submit">Enviar</button>
+            </div>
+          </form>
         </div>
       </div>
       <!--Icons-->
@@ -351,5 +381,11 @@
       </footer>
       <!----->
     </div>
+
+    <!-- EmailJS -->
+    <script src="script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <!-- Seu Script -->
   </body>
 </html>
